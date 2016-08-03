@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="contact form example">
+        <title>Amazon Turk Survey</title>
+    </head>
+
+    <body>
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="js/main.js"></script>
+        <h2 class="content-head is-center">Amazon Turk Survey</h2>
+        <center>
+            <aside class="page">
+                <p>
+                    Read the instructions carefully. You must answer every question on each page in order to proceed through the survey. 
+                </p>
+                <p>
+                    Upon successful completion of the survey, you will be directed to a confirmation page with a reward code that you should copy and paste back into Amazon Turk. 
+                </p>
+            </aside>
+        </center>
+
+        <!-- START HERE -->
+
+        <!--  LINKING TO CSS -->
+        <link href="main.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-server/master/style.css">
+
+
+        <form id="gform" 
+              method="POST" 
+              class="pure-form pure-form-stacked"
+              action="https://script.google.com/macros/s/AKfycbzOooQ56EMWCjwWr4PlY59iL4E-L2VOoOA0shyHSYGTvlULpTU/exec">
+            <!-- change the form action to your script url -->
+
+
+            <!--//////////   Including Email address so it sends  //////////////-->
+            <fieldset class="pure-group">
+                <label for="email" style="display: none;">
+                    Email Address:
+                </label>
+
+                <input id="email" name="email" type="email" value="scoutresearchteam@gmail.com" style="display:none;"
+                       required />
+            </fieldset>
+
+            <fieldset class="pure-group">
+                <label for="id" style="display: none;">
+                    id
+                </label>
+
+                <input id="id" name="id" type="text" value="" style="display:none;"
+                       required />
+            </fieldset>
+
+            <fieldset class="pure-group">
+                <label for="group" style="display: none;">
+                    group
+                </label>
+
+                <input id="group" name="group" type="text" value="" style="display:none;"
+                       required />
+            </fieldset>
+
+            <script>
+                if (Math.random() < .5) {
+                    document.getElementById('group').value = 'a'
+                } else {
+                    document.getElementById('group').value = 'b'
+                }
+
+                console.log(document.getElementById('group').value)
+            </script>
+
+            <!--  //////////////  Select an image //////////////--> 
+            <div id="imagePage">
+
+                <fieldset class="pure-group">
+                    <label for="selectedImage" class="prompt"> Select an image which you will proceed to apply an image effect to. <br /><b>You will not be able to change this image after hitting NEXT.</b></label>
+                    <p></p>
+                    <center>
+                        <input type='file' onchange="readURL(this);" />
+                        <div style="width: 50%;">
+                            <img id="blah" src="#" alt="your image" />
+                        </div>
+                    </center>
+                </fieldset>
+
+                <button style="position: absolute; right: 10%; opacity: .7; " id="nextEffects" type="button" class="btn btn-primary" onclick="nextPage('imagePage', 'effectPage')" disabled>
+                    next
+                </button>
+
+            </div>
+
+            <!--  //////////////  Select an effect //////////////--> 
+            <div id="effectPage">
+                <label class="prompt">This is your selected image:</label>
+
+                <center>
+                    <img id="activeImg" src="">
+                </center>
+
+                <p></p>
+
+                <fieldset class="pure-group">
+                    <label for="selectedEffect" class="prompt"> Select an effect below that you would like to apply to your chosen image:</label>
+                    <center>
+                        <table> 
+                            <tr>
+                                <td>
+                                    <label class="hide">
+                                        <input id="effect1" name="selectedEffect" value="grayscale" type="radio" style="display: none;" onchange="displayEffect(this.value)">
+                                        <img src="https://static.pexels.com/photos/108092/pexels-photo-108092-small.jpeg" class="grayscale">
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="hide">
+                                        <input id="effect2" name="selectedEffect" value="contrast" type="radio" style="display: none;" onchange="displayEffect(this.value)">
+                                        <img src="https://static.pexels.com/photos/108092/pexels-photo-108092-small.jpeg" class="contrast">
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="hide">
+                                        <input id="effect3" name="selectedEffect" value="blur" type="radio" style="display: none;" onchange="displayEffect(this.value)">
+                                        <img src="https://static.pexels.com/photos/108092/pexels-photo-108092-small.jpeg" class="blur">
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="hide">
+                                        <input id="effect4" name="selectedEffect" value="saturate" type="radio" style="display: none;" onchange="displayEffect(this.value)">
+                                        <img src="https://static.pexels.com/photos/108092/pexels-photo-108092-small.jpeg" class="saturate">
+                                    </label>
+                                </td>
+                            </tr>
+                        </table>
+                    </center>
+                </fieldset>
+
+                <button style="position: absolute; right: 10%; opacity: .7; " id="nextIntensity" type="button" class="btn btn-primary" onclick="nextPage('effectPage', 'intensityPage')" disabled>
+                    next
+                </button>
+            </div>
+
+            <!--  //////////////  Select an intensity //////////////--> 
+            <div id="intensityPage">
+                <label class="prompt">This is your <b>selected image</b> and the <b>effect</b> that you chose to apply to your image, respectively:</label><P></P>
+
+                <center>
+                    <img id="targetImg" src="">
+                    <img id="effectImg" src="https://static.pexels.com/photos/108092/pexels-photo-108092-medium.jpeg">
+                </center>
+
+                <p></p>
+
+                <fieldset class="pure-group">
+                    <label for="intensity" class="prompt"> How intense do you want the effect to be on your image? </label>
+                    <center>
+                        <table> 
+                            <tr>
+                                <td>
+                                    <label class="hide">
+                                        <input id="low" name="intensity" value="low" type="radio" onchange="displayIntensity(.2)"> <span>Low</span> <br />
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="hide">
+                                        <input id="medium" name="intensity" value="medium" type="radio" onchange="displayIntensity(.5)"> <span>Medium</span> <br />
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="hide">
+                                        <input id="high" name="intensity" value="high" type="radio" onchange="displayIntensity(.9)"> <span>High</span> 
+                                    </label>
+                                </td>
+                            </tr>
+                        </table>
+                    </center>
+                </fieldset>
+
+                <button style="position: absolute; right: 10%; opacity: .7; " id="nextFeedback" type="button" class="btn btn-primary" onclick="nextPage('intensityPage', 'feedbackPage')" disabled>
+                    next
+                </button>
+            </div>
+
+            <!--  //////////////  Feedback Page  //////////////--> 
+            <div id="feedbackPage">
+                <label>This is your <b>selected image</b> and the <b>effect</b> that you chose to apply to your image, respectively:</label><P></P>
+
+                <center>
+                    <img id="targetImgfeedback" src="">
+                    <img id="effectImgfeedback" src="https://static.pexels.com/photos/108092/pexels-photo-108092-small.jpeg">
+                </center>
+
+                <p></p>
+
+                <label>Here is your image with the applied effect:</label><p>
+                </p>
+
+
+                <div id="overlay">
+                    <img id="finalImgOverlay" style="position: absolute; z-index: 1;" src="">
+                    <p></p>
+                    <img id="finalImg" style=" z-index: -1;" src="">
+
+                </div>
+                <p>&nbsp;</p>
+
+                <aside>
+                    <p></p>
+                    Please mark your agreement with each of the statements below:
+                    <p></p>
+                </aside>
+                <p></p>
+                <!--      Q1 : expectations vs. reality-->
+                <fieldset class="pure-group">
+                    <label for="expectations1" align="center"> 1) The final edited image looks exactly how I expected it to look. </label>
+
+                    <center>
+                        <table> 
+                            <tr>
+                                <td>
+                                    <label class="hide agrees">
+                                        <input id="low" name="expectations1" value="1" type="radio" onchange="validate()"> <span>Strongly Agree</span> <br />
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="hide">
+                                        <input id="medium" name="expectations1" value="2" type="radio" onchange="validate()"> <span>Agree</span> <br />
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="hide agrees">
+                                        <input id="high" name="expectations1" value="3" type="radio" onchange="validate()"> <span>Neutral</span> 
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="hide agrees">
+                                        <input id="high" name="expectations1" value="4" type="radio" onchange="validate()"> <span>Disagree</span> 
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="hide agrees">
+                                        <input id="high" name="expectations1" value="5" type="radio" onchange="validate()"> <span>Strongly Disagree</span> 
+                                    </label>
+                                </td>
+                            </tr>
+                        </table>
+                    </center>
+                </fieldset>
+
+                <!--      Q2 : satisfaction with appearance-->
+                <fieldset class="pure-group">
+                    <label for="satisfaction" align="center"> 2) I am satisfied with how this edited image looks.</label>
+
+                    <center>
+                        <table> 
+                            <tr>
+                                <td>
+                                    <label class="hide agrees">
+                                        <input id="low" name="satisfaction" value="1" type="radio" onchange="validate()"> <span>Strongly Agree</span> <br />
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="hide">
+                                        <input id="medium" name="satisfaction" value="2" type="radio" onchange="validate()"> <span>Agree</span> <br />
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="hide agrees">
+                                        <input id="high" name="satisfaction" value="3" type="radio" onchange="validate()"> <span>Neutral</span> 
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="hide agrees">
+                                        <input id="high" name="satisfaction" value="4" type="radio" onchange="validate()"> <span>Disagree</span> 
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="hide agrees">
+                                        <input id="high" name="satisfaction" value="5" type="radio" onchange="validate()"> <span>Strongly Disagree</span> 
+                                    </label>
+                                </td>
+                            </tr>
+                        </table>
+                    </center>
+                </fieldset>
+
+                <!--      Q3 : sense of creative control-->
+                <fieldset class="pure-group">
+                    <label for="creativecontrol1" align="center"> 3) I had control over the creation of the final edited image.</label>
+
+                    <center>
+                        <table> 
+                            <tr>
+                                <td>
+                                    <label class="hide agrees">
+                                        <input id="low" name="creativecontrol1" value="1" type="radio" onchange="validate()"> <span>Strongly Agree</span> <br />
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="hide">
+                                        <input id="medium" name="creativecontrol1" value="2" type="radio" onchange="validate()"> <span>Agree</span> <br />
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="hide agrees">
+                                        <input id="high" name="creativecontrol1" value="3" type="radio" onchange="validate()"> <span>Neutral</span> 
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="hide agrees">
+                                        <input id="high" name="creativecontrol1" value="4" type="radio" onchange="validate()"> <span>Disagree</span> 
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="hide agrees">
+                                        <input id="high" name="creativecontrol1" value="5" type="radio" onchange="validate()"> <span>Strongly Disagree</span> 
+                                    </label>
+                                </td>
+                            </tr>
+                        </table>
+                    </center>
+                </fieldset>
+
+                <!--      Q4 : degree of creative control-->
+                <fieldset class="pure-group">
+                    <label for="creativecontrolamount" align="center"> 4) I want to be given more control over the image editing process.</label>
+
+                    <center>
+                        <table> 
+                            <tr>
+                                <td>
+                                    <label class="hide agrees">
+                                        <input id="low" name="creativecontrolamount" value="1" type="radio" onchange="validate()"> <span>Strongly Agree</span> <br />
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="hide">
+                                        <input id="medium" name="creativecontrolamount" value="2" type="radio" onchange="validate()"> <span>Agree</span> <br />
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="hide agrees">
+                                        <input id="high" name="creativecontrolamount" value="3" type="radio" onchange="validate()"> <span>Neutral</span> 
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="hide agrees">
+                                        <input id="high" name="creativecontrolamount" value="4" type="radio" onchange="validate()"> <span>Disagree</span> 
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="hide agrees">
+                                        <input id="high" name="creativecontrolamount" value="5" type="radio" onchange="validate()"> <span>Strongly Disagree</span> 
+                                    </label>
+                                </td>
+                            </tr>
+                        </table>
+                    </center>
+                </fieldset>
+
+                <!--      Q5 : self identifying as creative-->
+                <fieldset class="pure-group">
+                    <label for="creativeself" align="center"> 5) I consider myself to be creative.</label>
+
+                    <center>
+                        <table> 
+                            <tr>
+                                <td>
+                                    <label class="hide agrees">
+                                        <input id="low" name="creativeself" value="1" type="radio" onchange="validate()"> <span>Strongly Agree</span> <br />
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="hide">
+                                        <input id="medium" name="creativeself" value="2" type="radio" onchange="validate()"> <span>Agree</span> <br />
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="hide agrees">
+                                        <input id="high" name="creativeself" value="3" type="radio" onchange="validate()"> <span>Neutral</span> 
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="hide agrees">
+                                        <input id="high" name="creativeself" value="4" type="radio" onchange="validate()"> <span>Disagree</span> 
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="hide agrees">
+                                        <input id="high" name="creativeself" value="5" type="radio" onchange="validate()"> <span>Strongly Disagree</span> 
+                                    </label>
+                                </td>
+                            </tr>
+                        </table>
+                    </center>
+                </fieldset>
+
+                <!--      Q6 r: expectctions vs. reality-->
+                <fieldset class="pure-group">
+                    <label for="expectations2" align="center"> 6) The final edited image looks exactly how I expected it to look.</label>
+
+                    <center>
+                        <table> 
+                            <tr>
+                                <td>
+                                    <label class="hide agrees">
+                                        <input id="low" name="expectations2" value="1" type="radio" onchange="validate()"> <span>Strongly Agree</span> <br />
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="hide">
+                                        <input id="medium" name="expectations2" value="2" type="radio" onchange="validate()"> <span>Agree</span> <br />
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="hide agrees">
+                                        <input id="high" name="expectations2" value="3" type="radio" onchange="validate()"> <span>Neutral</span> 
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="hide agrees">
+                                        <input id="high" name="expectations2" value="4" type="radio" onchange="validate()"> <span>Disagree</span> 
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="hide agrees">
+                                        <input id="high" name="expectations2" value="5" type="radio" onchange="validate()"> <span>Strongly Disagree</span> 
+                                    </label>
+                                </td>
+                            </tr>
+                        </table>
+                    </center>
+                </fieldset>
+
+                <!--      Q7 r: sense of creative control-->
+                <fieldset class="pure-group">
+                    <label for="creativecontrol2" align="center"> 7) I had control over the creation of the final edited image.</label>
+
+                    <center>
+                        <table> 
+                            <tr>
+                                <td>
+                                    <label class="hide agrees">
+                                        <input id="low" name="creativecontrol2" value="1" type="radio" onchange="validate()"> <span>Strongly Agree</span> <br />
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="hide">
+                                        <input id="medium" name="creativecontrol2" value="2" type="radio" onchange="validate()"> <span>Agree</span> <br />
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="hide agrees">
+                                        <input id="high" name="creativecontrol2" value="3" type="radio" onchange="validate()"> <span>Neutral</span> 
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="hide agrees">
+                                        <input id="high" name="creativecontrol2" value="4" type="radio" onchange="validate()"> <span>Disagree</span> 
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="hide agrees">
+                                        <input id="high" name="creativecontrol2" value="5" type="radio" onchange="validate()"> <span>Strongly Disagree</span> 
+                                    </label>
+                                </td>
+                            </tr>
+                        </table>
+                    </center>
+                </fieldset>
+
+                <!--      Q8 r: sense of ownership-->
+                <fieldset class="pure-group">
+                    <label for="ownership" align="center"> 8) I feel ownership over the final edited image.</label>
+
+                    <center>
+                        <table> 
+                            <tr>
+                                <td>
+                                    <label class="hide agrees">
+                                        <input id="low" name="ownership" value="1" type="radio" onchange="validate()"> <span>Strongly Agree</span> <br />
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="hide">
+                                        <input id="medium" name="ownership" value="2" type="radio" onchange="validate()"> <span>Agree</span> <br />
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="hide agrees">
+                                        <input id="high" name="ownership" value="3" type="radio" onchange="validate()"> <span>Neutral</span> 
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="hide agrees">
+                                        <input id="high" name="ownership" value="4" type="radio" onchange="validate()"> <span>Disagree</span> 
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="hide agrees">
+                                        <input id="high" name="ownership" value="5" type="radio" onchange="validate()"> <span>Strongly Disagree</span> 
+                                    </label>
+                                </td>
+                            </tr>
+                        </table>
+                    </center>
+                </fieldset>
+
+            </div>
+
+            <button id="submit" class="button-success pure-button button-xlarge" onclick="makeid()" disabled>
+                <i class="fa fa-paper-plane"></i>
+                &nbsp;Submit
+            </button>
+
+        </form>
+
+        <!--  Thankyou Message People See when they submit the form: -->
+        <div style="display:none;" id="thankyou_message">
+            <h2><em>You have completed the survey.</em> </h2>
+
+            Please fill copy the following UNIQUE code and paste it into Amazon Mechanical Turk:
+
+            <p>
+            <h2 id="code">1234</h2>
+            </p>
+        </div>
+
+    <!-- Submit the Form to Google Using "AJAX" -->
+    <script data-cfasync="false" type="text/javascript"
+            src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-server/master/form-submission-handler.js"></script>
+    <!-- <script data-cfasync="false" type="text/javascript"
+src="/form-submission-handler.js"></script> -->
+    <!-- END -->
+
+
+    </body>
+</html>
