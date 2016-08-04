@@ -26,6 +26,7 @@
 
         <!--  LINKING TO CSS -->
         <link href="main.css" rel="stylesheet" type="text/css">
+        <link href="css/effects.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-server/master/style.css">
@@ -115,28 +116,40 @@
                             <tr>
                                 <td>
                                     <label class="hide">
-                                        <input id="effect1" name="selectedEffect" value="grayscale" type="radio" style="display: none;" onchange="displayEffect(this.value)">
-                                        <img src="https://static.pexels.com/photos/108092/pexels-photo-108092-small.jpeg" class="grayscale">
+                                        <input id="effect1" name="selectedEffect" value="tintype" type="radio" style="display: none;" onchange="displayEffect(this.value)">
+                                        <img src="http://www.keatleyphoto.com/wp-content/uploads/2016/05/IMG_3486.jpg" style="width: 150px;" class="tintype">
                                     </label>
                                 </td>
                                 <td>
                                     <label class="hide">
-                                        <input id="effect2" name="selectedEffect" value="contrast" type="radio" style="display: none;" onchange="displayEffect(this.value)">
-                                        <img src="https://static.pexels.com/photos/108092/pexels-photo-108092-small.jpeg" class="contrast">
+                                        <input id="effect2" name="selectedEffect" value="urbanImpact" type="radio" style="display: none;" onchange="displayEffect(this.value)">
+                                        <img src="http://www.keatleyphoto.com/wp-content/uploads/2016/05/IMG_3486.jpg" style="width: 150px;" class="urbanImpact">
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="hide">
+                                        <input id="effect5" name="selectedEffect" value="softBW" type="radio" style="display: none;" onchange="displayEffect(this.value)">
+                                        <img src="http://www.keatleyphoto.com/wp-content/uploads/2016/05/IMG_3486.jpg" style="width: 150px;" class="softBW">
                                     </label>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <label class="hide">
-                                        <input id="effect3" name="selectedEffect" value="blur" type="radio" style="display: none;" onchange="displayEffect(this.value)">
-                                        <img src="https://static.pexels.com/photos/108092/pexels-photo-108092-small.jpeg" class="blur">
+                                        <input id="effect3" name="selectedEffect" value="warmSoftColor" type="radio" style="display: none;" onchange="displayEffect(this.value)">
+                                        <img src="http://www.keatleyphoto.com/wp-content/uploads/2016/05/IMG_3486.jpg" style="width: 150px;" class="warmSoftColor">
                                     </label>
                                 </td>
                                 <td>
                                     <label class="hide">
-                                        <input id="effect4" name="selectedEffect" value="saturate" type="radio" style="display: none;" onchange="displayEffect(this.value)">
-                                        <img src="https://static.pexels.com/photos/108092/pexels-photo-108092-small.jpeg" class="saturate">
+                                        <input id="effect4" name="selectedEffect" value="faded" type="radio" style="display: none;" onchange="displayEffect(this.value)">
+                                        <img src="http://www.keatleyphoto.com/wp-content/uploads/2016/05/IMG_3486.jpg" style="width: 150px;" class="faded">
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="hide">
+                                        <input id="effect6" name="selectedEffect" value="edgyMagazine" type="radio" style="display: none;" onchange="displayEffect(this.value)">
+                                        <img src="http://www.keatleyphoto.com/wp-content/uploads/2016/05/IMG_3486.jpg" style="width: 150px;" class="edgyMagazine">
                                     </label>
                                 </td>
                             </tr>
@@ -159,7 +172,7 @@
                     </div>
 
                     <div style="width: 30%;">
-                        <img style="width: 100%;" id="effectImg" src="https://static.pexels.com/photos/108092/pexels-photo-108092-medium.jpeg">
+                        <img style="width: 100%;" id="effectImg" src="http://www.keatleyphoto.com/wp-content/uploads/2016/05/IMG_3486.jpg">
                     </div>
                 </center>
 
@@ -204,7 +217,7 @@
                         <img style="width: 100%;" id="targetImgfeedback" src="">
                     </div>
                     <div style="width: 30%;">
-                        <img style="width: 100%;" id="effectImgfeedback" src="https://static.pexels.com/photos/108092/pexels-photo-108092-small.jpeg">
+                        <img style="width: 100%;" id="effectImgfeedback" src="http://www.keatleyphoto.com/wp-content/uploads/2016/05/IMG_3486.jpg">
                     </div>
                 </center>
 

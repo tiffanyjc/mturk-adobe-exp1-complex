@@ -1,0 +1,30 @@
+
+.tintype {
+  filter: grayscale(100%) brightness(81%) contrast(154%) hue-rotate(0deg) invert(20%) saturate(0%) sepia(52%); 
+  -webkit-filter: grayscale(100%) brightness(81%) contrast(154%) hue-rotate(0deg) invert(20%) saturate(0%) sepia(52%); 
+}
+
+.urbanImpact {
+    filter: grayscale(0%) brightness(134%) contrast(200%) hue-rotate(0deg) invert(0%) saturate(0%) sepia(0%); 
+    -webkit-filter: grayscale(0%) brightness(134%) contrast(200%) hue-rotate(0deg) invert(0%) saturate(0%) sepia(0%); 
+}
+
+.warmSoftColor {
+  filter: grayscale(69%) brightness(90%) contrast(122%) hue-rotate(0deg) invert(16%) saturate(500%) sepia(21%); 
+  -webkit-filter: grayscale(69%) brightness(90%) contrast(122%) hue-rotate(0deg) invert(16%) saturate(500%) sepia(21%); 
+}
+
+.faded {
+  filter: grayscale(0%) brightness(108%) contrast(200%) hue-rotate(0deg) opacity(85%) invert(23%) saturate(331%) sepia(80%); 
+  -webkit-filter: grayscale(0%) brightness(108%) contrast(200%) hue-rotate(0deg) opacity(85%) invert(23%) saturate(331%) sepia(80%); 
+}
+
+.softBW {
+  filter: grayscale(100%) brightness(109%) contrast(81%) hue-rotate(0deg) opacity(85%) invert(0%) saturate(273%) sepia(0%); 
+  -webkit-filter: grayscale(100%) brightness(109%) contrast(81%) hue-rotate(0deg) opacity(85%) invert(0%) saturate(273%) sepia(0%); 
+}
+
+.edgyMagazine {
+  
+  -webkit-filter: grayscale(0%) brightness(180%) contrast(200%) hue-rotate(0deg) opacity(76%) invert(0%) saturate(204%) sepia(53%); 
+}
