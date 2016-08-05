@@ -15,16 +15,16 @@
 }
 
 .faded {
-  filter: grayscale(0%) brightness(108%) contrast(200%) hue-rotate(0deg) opacity(85%) invert(23%) saturate(331%) sepia(80%); 
-  -webkit-filter: grayscale(0%) brightness(108%) contrast(200%) hue-rotate(0deg) opacity(85%) invert(23%) saturate(331%) sepia(80%); 
+  filter: grayscale(0%) brightness(108%) contrast(200%) hue-rotate(0deg) opacity(100%) invert(23%) saturate(331%) sepia(80%); 
+  -webkit-filter: grayscale(0%) brightness(108%) contrast(200%) hue-rotate(0deg) opacity(100%) invert(23%) saturate(331%) sepia(80%); 
 }
 
 .softBW {
-  filter: grayscale(100%) brightness(109%) contrast(81%) hue-rotate(0deg) opacity(85%) invert(0%) saturate(273%) sepia(0%); 
-  -webkit-filter: grayscale(100%) brightness(109%) contrast(81%) hue-rotate(0deg) opacity(85%) invert(0%) saturate(273%) sepia(0%); 
+  filter: grayscale(100%) brightness(109%) contrast(81%) hue-rotate(0deg) opacity(100%) invert(0%) saturate(273%) sepia(0%); 
+  -webkit-filter: grayscale(100%) brightness(109%) contrast(81%) hue-rotate(0deg) opacity(100%) invert(0%) saturate(273%) sepia(0%); 
 }
 
 .edgyMagazine {
-  
-  -webkit-filter: grayscale(0%) brightness(180%) contrast(200%) hue-rotate(0deg) opacity(76%) invert(0%) saturate(204%) sepia(53%); 
+  filter: grayscale(0%) brightness(180%) contrast(200%) hue-rotate(0deg) opacity(100%) invert(0%) saturate(204%) sepia(53%); 
+  -webkit-filter: grayscale(0%) brightness(180%) contrast(200%) hue-rotate(0deg) opacity(100%) invert(0%) saturate(204%) sepia(53%); 
 }
