@@ -20,8 +20,8 @@ function displayEffect(effect) {
 
 function displayIntensity(intensity) {
     document.getElementById('nextFeedback').disabled = false
-    document.getElementById('nextFeedback').style.opacity = 1
-    document.getElementById('finalImgOverlay').style.opacity  = intensity
+    document.getElementById('nextFeedback').style.opacity = 1;
+    document.getElementById('finalImgOverlay').style.opacity  = intensity;
 }
 
 function displayReturned() {
@@ -33,7 +33,9 @@ function nextPage(current, next) {
         var group = document.getElementById('group').value
         if (group == 'a') {
             next = 'feedbackPage'
-            document.getElementById('finalImgOverlay').style.opacity = Math.random(); 
+            document.getElementById('finalImgOverlay').style.opacity = 1; 
+            document.getElementById('finalImg').style.opacity = 0; 
+//            document.getElementById('finalImgOverlay').style.opacity = Math.random(); 
         }
     }
 
