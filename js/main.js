@@ -22,6 +22,9 @@ function displayIntensity(intensity) {
     document.getElementById('nextFeedback').disabled = false
     document.getElementById('nextFeedback').style.opacity = 1;
     document.getElementById('finalImgOverlay').style.opacity  = intensity;
+    if (intensity == 1) {
+        document.getElementById('finalImg').style.display = "none"; 
+    }
 }
 
 function displayReturned() {
