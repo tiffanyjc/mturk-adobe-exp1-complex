@@ -11,6 +11,7 @@ function displayImage(img) {
 }
 
 function displayEffect(effect) {
+    document.getElementById('activeImg').className = effect; 
     document.getElementById('nextIntensity').disabled = false
     document.getElementById('nextIntensity').style.opacity = 1
     document.getElementById('effectImg').className = effect
@@ -36,9 +37,11 @@ function nextPage(current, next) {
         var group = document.getElementById('group').value
         if (group == 'a') {
             next = 'feedbackPage'
+            
+            
             document.getElementById('finalImgOverlay').style.opacity = 1; 
             document.getElementById('finalImg').style.opacity = 0; 
-//            document.getElementById('finalImgOverlay').style.opacity = Math.random(); 
+            
         }
     }
 
@@ -48,6 +51,7 @@ function nextPage(current, next) {
 
     document.getElementById(current).style.display = "none";
     document.getElementById(next).style.display = "block"; 
+    unfade(document.getElementById(next));
 }
 
 function validate() {
@@ -94,7 +98,7 @@ function readURL(input) {
         var reader = new FileReader();
 
         reader.onload = function (e) {
-            document.getElementById('activeImg').src = e.target.result; 
+//            document.getElementById('activeImg').src = e.target.result; 
             document.getElementById('targetImg').src = e.target.result; 
             document.getElementById('finalImg').src = e.target.result; 
             document.getElementById('finalImgOverlay').src = e.target.result; 
@@ -111,4 +115,19 @@ function readURL(input) {
         reader.readAsDataURL(input.files[0]);
     }
 
+}
+
+
+function unfade(element) {
+    console.log('unfadinggg');
+    var op = 0.1;  // initial opacity
+    element.style.display = 'block';
+    var timer = setInterval(function () {
+        if (op >= 1){
+            clearInterval(timer);
+        }
+        element.style.opacity = op;
+        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op += op * 0.1;
+    }, 10);
 }

@@ -76,7 +76,7 @@ td {
 }
 
 /*    setting up pages */
-#effectPage, #intensityPage, #feedbackPage {
+#imagePage, #intensityPage, #feedbackPage {
     display: none; 
     border: 0px solid white; 
 }

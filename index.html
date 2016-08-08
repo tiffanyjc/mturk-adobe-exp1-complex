@@ -78,6 +78,7 @@
             </script>
 
             <!--  //////////////  Select an image //////////////--> 
+<!--
             <div id="imagePage">
 
                 <fieldset class="pure-group">
@@ -96,21 +97,13 @@
                 </button>
 
             </div>
+-->
 
             <!--  //////////////  Select an effect //////////////--> 
             <div id="effectPage">
-                <label class="prompt">This is your selected image:</label>
-
-                <center>
-                    <div style="width: 30%;">
-                        <img style="width: 100%;" id="activeImg" src="">
-                    </div>
-                </center>
-
-                <p></p>
 
                 <fieldset class="pure-group">
-                    <label for="selectedEffect" class="prompt"> Select an effect below that you would like to apply to your chosen image:</label>
+                    <label for="selectedEffect" class="prompt"> Select an effect below that you would like to apply to a personal image which you will upload on the next page:</label>
                     <center>
                         <table> 
                             <tr>
@@ -157,9 +150,39 @@
                     </center>
                 </fieldset>
 
-                <button style="position: absolute; right: 10%; opacity: .7; " id="nextIntensity" type="button" class="btn btn-primary" onclick="nextPage('effectPage', 'intensityPage')" disabled>
+                <button style="position: absolute; right: 10%; opacity: .7; " id="nextIntensity" type="button" class="btn btn-primary" onclick="nextPage('effectPage', 'imagePage')" disabled>
                     next
                 </button>
+            </div>
+            
+             <!--  //////////////  Select an image //////////////--> 
+            <div id="imagePage">
+                
+                <label class="prompt">This is your selected effect:</label>
+
+                <center>
+                    <div style="width: 30%;">
+                        <img style="width: 100%;" id="activeImg" src="http://www.keatleyphoto.com/wp-content/uploads/2016/05/IMG_3486.jpg">
+                    </div>
+                </center>
+                
+                <p></p>
+
+                <fieldset class="pure-group">
+                    <label for="selectedImage" class="prompt"> Upload an image which you will proceed to apply this effect to. <br /><b>You will not be able to change this image after hitting NEXT.</b></label>
+                    <p></p>
+                    <center>
+                        <input type='file' onchange="readURL(this);" />
+                        <div style="width: 50%;">
+                            <img id="blah" src="#" alt="your image" />
+                        </div>
+                    </center>
+                </fieldset>
+
+                <button style="position: absolute; right: 10%; opacity: .7; " id="nextEffects" type="button" class="btn btn-primary" onclick="nextPage('imagePage', 'intensityPage')" disabled>
+                    next
+                </button>
+
             </div>
 
             <!--  //////////////  Select an intensity //////////////--> 
